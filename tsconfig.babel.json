@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.json",
+  "exclude": [
+    "src/**/*.stories.tsx",
+    "/**/__tests__/**",
+    "src/**/*.test.*",
+    "**/__fixtures__/**/*",
+    "src/storyComponents/**/*"
+  ],
+  "compilerOptions": {
+    "declaration": true,
+    "outDir": "./build",
+    "rootDir": "./src",
+    "module": "ESNext",
+    "target": "ESNext",
+    "esModuleInterop": true,
+    "declarationMap": true,
+    "declarationDir": "build/types"
+  },
+  "include": ["src/**/*"]
+}

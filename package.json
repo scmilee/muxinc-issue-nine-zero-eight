@@ -1,0 +1,46 @@
+{
+  "name": "muxinc-issue-nine-zero-eight",
+  "version": "1.0.0",
+  "description": "repo to reproduce mux issue #908",
+  "main": "build/cjs/index.js",
+  "module": "build/esm/index.js",
+  "types": "build/types/index.d.ts",
+  "scripts": {
+    "build": "npm run build:babel:all",
+    "build:babel:all": "rimraf build && npm run build:babel:esm && npm run build:babel:cjs && npm run build:types",
+    "build:babel:esm": "./node_modules/.bin/babel src --out-dir build/esm --extensions \".ts,.tsx\" --source-maps",
+    "build:babel:cjs": "./node_modules/.bin/babel src --out-dir build/cjs --extensions \".ts,.tsx\" --source-maps --env-name cjs",
+    "build:types": "tsc -p tsconfig.babel.json --emitDeclarationOnly",
+    "build:tsc:cjs": "tsc -p tsconfig.build.json",
+    "build:tsc:esm": "tsc -p tsconfig.build.esm.json",
+    "build:tsc:all": "rimraf build && npm run build:tsc:cjs && npm run build:tsc:esm",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "scmilee",
+  "license": "ISC",
+  "peerDependencies": {
+    "@emotion/core": "^11.0.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mux/mux-player-react": "^2.6.0",
+    "react": "^17.0.2",
+    "react-copy-to-clipboard": "^5.0.3",
+    "react-dom": "17.0.2",
+    "react-pdf": "^5.1.0",
+    "react-syntax-highlighter": "^15.5.0"
+  },
+  "devDependencies": {
+    "@emotion/babel-plugin": "^11.11.0",
+    "@emotion/babel-preset-css-prop": "^11.11.0",
+    "@emotion/jest": "^11.11.0",
+    "@babel/cli": "^7.24.1",
+    "@babel/preset-env": "^7.23.2",
+    "@babel/preset-react": "^7.22.15",
+    "@babel/preset-typescript": "^7.23.2",
+    "@types/react": "^18.3.1",
+    "rimraf": "^5.0.5"
+  },
+  "dependencies": {
+    "typescript": "^5.4.5"
+  }
+}
